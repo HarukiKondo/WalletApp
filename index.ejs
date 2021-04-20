@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+      <meta http-equiv="content-type" content="text/html; charset="utf-8">
+      <title>EIP712 デモページ</title>
+      <script src="./js/sign.js" language="javascript"></script>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+    </head>
+    <body class="container">
+      <p>
+        <h1>マルチシグのサンプルページです。</h1>
+        <a href="https://weijiekoh.github.io/eip712-signing-demo/index.html">this EIP712 demo</a>
+      </p>
+      <div role="main">
+        <div class="form-group">
+          <label for="walletAddress">作成済みウォレットのアドレス</label>
+          <input type="text" name="walletAddress" id="walletAddress" size="40" class="form-control" value="0x84F0f2766a52a1A514253D873e9FbEBFb83423a3">
+        </div>
+        <div class="form-group">
+          <label for="destination">宛先アドレス</label>
+          <input type="text" name="destination" id="destination" size="40" class="form-control" value="0x84F0f2766a52a1A514253D873e9FbEBFb83423a3">
+        </div>
+        <div class="form-group">
+          <label for="value">送金額(ETH)</label>
+          <input type="text" name="value" id="value" size="10" class="form-control" value="1000000000000">
+        </div>
+        <div class="form-group">
+          <label for="data">署名するデータ</label>
+          <input type="text" name="data" id="data" size="40" class="form-control" value="0xf207564e0000000000000000000000000000000000000000000000000000000000003039">
+        </div>
+        <div class="form-group">
+          <label for="nonce">ナンス</label>
+          <input type="text" name="nonce" id="nonce" size="10" class="form-control" value="0">
+        </div>
+        <div class="form-group">
+          <label for="executor">実行者のアドレス</label>
+          <input type="text" name="executor" id="executor" size="40" class="form-control" value="0x39623a0315CC878F593d62cB514D04e5CBf612BE">
+        </div>
+        <div class="form-group">
+          <label for="gasLimit">Gasリミット</label>
+          <input type="text" name="gasLimit" id="gasLimit" size="10" class="form-control" value="100000">
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <button id="signBtn" class="btn btn-primary">署名する</button>
+      </div>
+
+      <h3>署名済みデータ</h3>
+      <div><textarea id='signedData' rows=8 cols=155></textarea></div>
+    </body>
+</html>
