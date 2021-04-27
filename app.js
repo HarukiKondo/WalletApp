@@ -9,7 +9,7 @@ const url = require('url');
 const qs = require('querystring');
 
 // ejsファイルの読み込み
-const index_page = fs.readFileSync('./index.ejs', 'utf8');
+const sign_page = fs.readFileSync('./sign.ejs', 'utf8');
 const login_page = fs.readFileSync('./login.ejs', 'utf8')
 
 const max_num = 10;
@@ -28,9 +28,9 @@ function getFromClient(request, response) {
     // URLを構築するための変数を用意
     var url_parts = url.parse(request.url, true);
     switch (url_parts.pathname) {
-        // index画面
+        // sign画面
         case '/':
-            ejs.render(index_page, {});
+            ejs.render(sign_page, {});
             break;
 
         // other画面
@@ -45,8 +45,8 @@ function getFromClient(request, response) {
     }
 }
 
-// index画面のアクセス処理
-function response_index(request, response){
+// sign画面のアクセス処理
+function response_sign(request, response){
     // POSTアクセス時の処理
     if (request.method == 'POST') {
         var body = '';
@@ -61,11 +61,11 @@ function response_index(request, response){
             // データを更新
             addToData(data.id, data.msg, filename, request);
             // メソッドの呼び出し
-            write_index(request, response);
+            write_sign(request, response);
         });
     } else {
         // メソッドの呼び出し
-        write_index(request, response);
+        write_sign(request, response);
     }
 }
 
@@ -77,12 +77,12 @@ function response_login(request, response) {
     response.end();
 }
 
-// Index画面の作成表示画面
-function write_index(request, response) {
+// sign画面の作成表示画面
+function write_sign(request, response) {
     // 値をセットする。
     var msg = "※何かメッセージを書いてください。";
-    // index.ejsをレンダリングする。
-    var content = ejs.render(index_page, {
+    // sign.ejsをレンダリングする。
+    var content = ejs.render(sign_page, {
         title: "Index",
         content: msg,
         data: message_data,

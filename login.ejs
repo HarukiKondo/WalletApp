@@ -2,19 +2,15 @@
 <html lang="ja">
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-        <title>ミニメッセージボード</title>
+        <title>ログイン画面</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
-        <script>
-            function setId() {
-                var id = document.querySelector('#id_input').value;
-                var id = localStorage.setItem('id', id);
-                location.href = '/';
-            }
-        </script>
+        <script src="./js/login.js" language="javascript"></script>
     </head>
     <body class="container" onload="init();">
         <header>
-            <h1 class="display-4">メッセージボード</h1>
+            <h1 class="display-4">
+                ログイン画面
+            </h1>
         </header>
         <div role="main">
             <p>あなたのログインネームを入力ください。</p>
